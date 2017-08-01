@@ -5,6 +5,7 @@ import Root from './components/root';
 
 //REMOVE AFTER TESTING
 import {receiveTodos, receiveTodo} from './actions/todo_actions';
+import {allTodos} from './reducers/selectors';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore;
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store;
   window.receiveTodos = receiveTodos;
   window.receiveTodo = receiveTodo;
+  window.allTodos = allTodos;
   //
 
   const root = document.getElementById('content');

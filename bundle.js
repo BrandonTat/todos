@@ -2094,8 +2094,11 @@ var _root2 = _interopRequireDefault(_root);
 
 var _todo_actions = __webpack_require__(62);
 
+var _selectors = __webpack_require__(327);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//REMOVE AFTER TESTING
 document.addEventListener('DOMContentLoaded', function () {
   var store = _store2.default;
 
@@ -2103,13 +2106,12 @@ document.addEventListener('DOMContentLoaded', function () {
   window.store = store;
   window.receiveTodos = _todo_actions.receiveTodos;
   window.receiveTodo = _todo_actions.receiveTodo;
+  window.allTodos = _selectors.allTodos;
   //
 
   var root = document.getElementById('content');
   _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
-
-//REMOVE AFTER TESTING
 
 /***/ }),
 /* 19 */
@@ -42097,6 +42099,23 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
   verify(mapDispatchToProps, 'mapDispatchToProps', displayName);
   verify(mergeProps, 'mergeProps', displayName);
 }
+
+/***/ }),
+/* 327 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var allTodos = exports.allTodos = function allTodos(_ref) {
+  var todos = _ref.todos;
+  return Object.keys(todos).map(function (id) {
+    return todos[id];
+  });
+};
 
 /***/ })
 /******/ ]);
