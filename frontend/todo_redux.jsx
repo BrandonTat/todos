@@ -6,7 +6,7 @@ import Root from './components/root';
 //REMOVE AFTER TESTING
 import {receiveTodos, receiveTodo} from './actions/todo_actions';
 import {allTodos} from './reducers/selectors';
-
+// 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore;
 

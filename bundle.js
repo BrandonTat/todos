@@ -2098,6 +2098,9 @@ var _selectors = __webpack_require__(327);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// 
+
+
 //REMOVE AFTER TESTING
 document.addEventListener('DOMContentLoaded', function () {
   var store = _store2.default;
