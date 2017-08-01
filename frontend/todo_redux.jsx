@@ -1,5 +1,7 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import configureStore from './store/store';
+import App from './components/app.jsx';
 
 //REMOVE AFTER TESTING
 import {receiveTodos, receiveTodo} from './actions/todo_actions';
@@ -14,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
   //
 
   const root = document.getElementById('content');
-  root.innerHTML = "Todo App";
+  ReactDOM.render(<App />, root);
 });
