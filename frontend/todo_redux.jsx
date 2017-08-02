@@ -4,9 +4,9 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 //REMOVE AFTER TESTING
-import {receiveTodos, receiveTodo} from './actions/todo_actions';
+import {receiveTodos, receiveTodo, removeTodo} from './actions/todo_actions';
 import {allTodos} from './reducers/selectors';
-// 
+//
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore;
 
@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.receiveTodos = receiveTodos;
   window.receiveTodo = receiveTodo;
   window.allTodos = allTodos;
+  window.removeTodo = removeTodo;
   //
 
   const root = document.getElementById('content');
