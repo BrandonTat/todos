@@ -11319,6 +11319,14 @@ var allSteps = exports.allSteps = function allSteps(_ref2) {
   });
 };
 
+var stepsByTodoId = exports.stepsByTodoId = function stepsByTodoId(state, todoId) {
+  var steps = allSteps(state);
+
+  return steps.filter(function (step) {
+    return step.todo_id == todoId;
+  });
+};
+
 /***/ }),
 /* 100 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -11364,6 +11372,8 @@ document.addEventListener('DOMContentLoaded', function () {
   window.receiveSteps = _step_actions.receiveSteps;
   window.receiveStep = _step_actions.receiveStep;
   window.removeStep = _step_actions.removeStep;
+  window.allSteps = _selectors.allSteps;
+  window.stepsByTodoId = _selectors.stepsByTodoId;
   //
 
   var root = document.getElementById('content');
@@ -45493,8 +45503,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var initialState = {
+  1: { // this is the step with id = 1
+    id: 1,
+    title: 'walk to store',
+    done: false,
+    todo_id: 1
+  },
+  2: { // this is the step with id = 2
+    id: 2,
+    title: 'buy soap',
+    done: false,
+    todo_id: 1
+  }
+};
+
 var stepsReducer = function stepsReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments[1];
 
   Object.freeze(state);
