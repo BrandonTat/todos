@@ -7,12 +7,13 @@ class TodoDetailView extends React.Component{
   }
 
   render() {
-    const { todo } = this.props;
+    const { todo, removeTodo } = this.props;
 
     return(
       <div>
         <li>{todo.body}</li>
         <StepListContainer todo_id={ todo.id } />
+        <button onClick={ removeTodo }>Remove Todo</button>
       </div>
     );
   }

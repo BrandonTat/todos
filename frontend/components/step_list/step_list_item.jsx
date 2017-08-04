@@ -1,4 +1,5 @@
 import React from 'react';
+import merge from 'lodash/merge';
 
 class StepListItem extends React.Component{
   constructor(props) {
@@ -10,7 +11,7 @@ class StepListItem extends React.Component{
 
   toggleStep(e) {
     e.preventDefault();
-    console.log("step");
+    console.log("toggle");
   }
 
   removeStep(e) {

@@ -45424,7 +45424,9 @@ var TodoDetailView = function (_React$Component) {
   _createClass(TodoDetailView, [{
     key: 'render',
     value: function render() {
-      var todo = this.props.todo;
+      var _props = this.props,
+          todo = _props.todo,
+          removeTodo = _props.removeTodo;
 
 
       return _react2.default.createElement(
@@ -45435,7 +45437,12 @@ var TodoDetailView = function (_React$Component) {
           null,
           todo.body
         ),
-        _react2.default.createElement(_step_list_container2.default, { todo_id: todo.id })
+        _react2.default.createElement(_step_list_container2.default, { todo_id: todo.id }),
+        _react2.default.createElement(
+          'button',
+          { onClick: removeTodo },
+          'Remove Todo'
+        )
       );
     }
   }]);
@@ -45603,6 +45610,10 @@ var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _merge = __webpack_require__(109);
+
+var _merge2 = _interopRequireDefault(_merge);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45625,45 +45636,45 @@ var StepListItem = function (_React$Component) {
   }
 
   _createClass(StepListItem, [{
-    key: "toggleStep",
+    key: 'toggleStep',
     value: function toggleStep(e) {
       e.preventDefault();
-      console.log("step");
+      console.log("toggle");
     }
   }, {
-    key: "removeStep",
+    key: 'removeStep',
     value: function removeStep(e) {
       e.preventDefault();
       console.log("remove");
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       var step = this.props.step;
 
 
       return _react2.default.createElement(
-        "li",
+        'li',
         null,
         _react2.default.createElement(
-          "h3",
+          'h3',
           null,
           step.title
         ),
         _react2.default.createElement(
-          "p",
+          'p',
           null,
           step.body
         ),
         _react2.default.createElement(
-          "button",
+          'button',
           { onClick: this.toggleStep },
-          "Toggle Step"
+          'Toggle Step'
         ),
         _react2.default.createElement(
-          "button",
+          'button',
           { onClick: this.removeStep },
-          "Remove Step"
+          'Remove Step'
         )
       );
     }
