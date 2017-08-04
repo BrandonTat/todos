@@ -10,6 +10,7 @@ class TodoList extends React.Component{
         todo={todo}
         key={todo.id}
         removeTodo={ removeTodo }
+        receiveTodo={ receiveTodo }
       />
     ));
 
