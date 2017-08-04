@@ -11312,6 +11312,13 @@ var allTodos = exports.allTodos = function allTodos(_ref) {
   });
 };
 
+var allSteps = exports.allSteps = function allSteps(_ref2) {
+  var steps = _ref2.steps;
+  return Object.keys(steps).map(function (id) {
+    return steps[id];
+  });
+};
+
 /***/ }),
 /* 100 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -24056,10 +24063,15 @@ var _todos_reducer = __webpack_require__(217);
 
 var _todos_reducer2 = _interopRequireDefault(_todos_reducer);
 
+var _steps_reducer = __webpack_require__(335);
+
+var _steps_reducer2 = _interopRequireDefault(_steps_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
-  todos: _todos_reducer2.default
+  todos: _todos_reducer2.default,
+  steps: _steps_reducer2.default
 });
 
 exports.default = rootReducer;
@@ -45459,6 +45471,56 @@ var removeStep = exports.removeStep = function removeStep(step) {
     step: step
   };
 };
+
+/***/ }),
+/* 335 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _step_actions = __webpack_require__(334);
+
+var _merge2 = __webpack_require__(265);
+
+var _merge3 = _interopRequireDefault(_merge2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var stepsReducer = function stepsReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  Object.freeze(state);
+  var nextState = void 0;
+
+  switch (action.type) {
+    case _step_actions.RECEIVE_STEPS:
+      nextState = (0, _merge3.default)({}, state);
+      action.steps.forEach(function (step) {
+        return nextState[step.id] = step;
+      });
+      return nextState;
+    case _step_actions.RECEIVE_STEP:
+      return (0, _merge3.default)({}, state, _defineProperty({}, action.step.id, action.step));
+    case _step_actions.REMOVE_STEP:
+      nextState = (0, _merge3.default)({}, state);
+      delete nextState[action.step.id];
+      return nextState;
+    default:
+      return state;
+  }
+};
+
+exports.default = stepsReducer;
+
+// title, todo_id, done
 
 /***/ })
 /******/ ]);
