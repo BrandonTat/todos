@@ -11337,14 +11337,13 @@ var _root2 = _interopRequireDefault(_root);
 
 var _todo_actions = __webpack_require__(54);
 
+var _step_actions = __webpack_require__(334);
+
 var _selectors = __webpack_require__(99);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //
-
-
-//REMOVE AFTER TESTING
 document.addEventListener('DOMContentLoaded', function () {
   var store = _store2.default;
 
@@ -11354,11 +11353,17 @@ document.addEventListener('DOMContentLoaded', function () {
   window.receiveTodo = _todo_actions.receiveTodo;
   window.allTodos = _selectors.allTodos;
   window.removeTodo = _todo_actions.removeTodo;
+
+  window.receiveSteps = _step_actions.receiveSteps;
+  window.receiveStep = _step_actions.receiveStep;
+  window.removeStep = _step_actions.removeStep;
   //
 
   var root = document.getElementById('content');
   _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
+
+//REMOVE AFTER TESTING
 
 /***/ }),
 /* 101 */
@@ -45417,6 +45422,43 @@ var TodoDetailView = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = TodoDetailView;
+
+/***/ }),
+/* 334 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+// Action types
+var RECEIVE_STEPS = exports.RECEIVE_STEPS = "RECEIVE_STEPS";
+var RECEIVE_STEP = exports.RECEIVE_STEP = "RECEIVE_STEP";
+var REMOVE_STEP = exports.REMOVE_STEP = "REMOVE_STEP";
+
+// Action creators
+var receiveSteps = exports.receiveSteps = function receiveSteps(steps) {
+  return {
+    type: RECEIVE_STEPS,
+    steps: steps
+  };
+};
+
+var receiveStep = exports.receiveStep = function receiveStep(step) {
+  return {
+    type: RECEIVE_STEP,
+    step: step
+  };
+};
+
+var removeStep = exports.removeStep = function removeStep(step) {
+  return {
+    type: REMOVE_STEP,
+    step: step
+  };
+};
 
 /***/ })
 /******/ ]);
